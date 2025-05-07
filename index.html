@@ -1,119 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Glasstdm Hits 1M Robux!</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Glasstdm's 1M Robux Celebration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.18/dist/index.min.js"></script>
   <style>
     * {
-      margin: 0; padding: 0; box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      font-family: 'Outfit', sans-serif;
+      background: radial-gradient(ellipse at top, #0f0f0f, #000);
       color: white;
-      font-family: 'Inter', sans-serif;
       overflow-x: hidden;
     }
 
     header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
       text-align: center;
-      padding: 100px 20px;
-      background: linear-gradient(145deg, #222, #111);
+      padding: 20px;
+      background: url('https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
     }
 
-    h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 3rem;
-      color: #00ffcc;
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      color: #00ffc8;
+      z-index: 2;
+      text-shadow: 0 0 20px #00ffc8;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      z-index: 2;
+      color: #ddd;
+      margin-top: 10px;
+    }
+
+    .card {
+      margin-top: -80px;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 40px;
+      width: 90%;
+      max-width: 700px;
+      margin-inline: auto;
+      box-shadow: 0 0 30px rgba(0, 255, 200, 0.2);
+      z-index: 2;
+      position: relative;
+    }
+
+    .card h2 {
+      font-size: 2rem;
+      color: #fff;
       margin-bottom: 10px;
     }
 
-    h2 {
-      font-size: 1.5rem;
-      color: #999;
-    }
-
-    .counter {
-      font-size: 5rem;
-      font-weight: bold;
-      color: #00ff99;
-      margin-top: 30px;
-    }
-
-    .thanks {
-      padding: 60px 20px;
-      max-width: 800px;
-      margin: auto;
-      text-align: center;
-    }
-
-    .thanks h3 {
-      font-size: 2rem;
-      color: #ffcc00;
-      margin-bottom: 30px;
-    }
-
-    .thanks ul {
-      list-style: none;
-      font-size: 1.2rem;
-    }
-
-    .thanks ul li {
+    .robux {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #00ff94;
       margin: 10px 0;
-      background: #222;
-      padding: 12px 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px #00ffaa33;
     }
 
-    footer {
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 16px;
+      padding: 20px 10px;
+      margin-top: 20px;
+    }
+
+    .carousel div {
+      flex: 0 0 auto;
+      scroll-snap-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 16px;
+      min-width: 200px;
       text-align: center;
-      padding: 40px 20px;
-      background: #111;
-      color: #666;
+      font-weight: 600;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 30px;
       font-size: 0.9rem;
+      color: #888;
+      margin-top: 60px;
     }
 
-    .glow {
-      animation: glow 2s infinite alternate;
-    }
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
 
-    @keyframes glow {
-      from { text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc; }
-      to { text-shadow: 0 0 20px #00ffcc, 0 0 30px #00ffcc; }
+      .robux {
+        font-size: 2.2rem;
+      }
+
+      .card {
+        padding: 25px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1 class="glow">🎉 Glasstdm Hit 1,000,000 Robux! 🎉</h1>
-    <h2>The grind paid off. The bag has officially been secured.</h2>
-    <div class="counter">1,000,000 💰</div>
-  </header>
+<canvas id="confetti"></canvas>
 
-  <section class="thanks">
-    <h3>Shoutout to the Real Ones</h3>
-    <ul>
-      <li>🙏 Mom</li>
-      <li>🙏 Dad</li>
-      <li>💖 Girlfriend</li>
-      <li>🔥 Karma (the GOAT)</li>
-      <li>🧠 Patrick</li>
-      <li>🐶 His Dog</li>
-      <li>👊 His Brother</li>
-      <li>👊 His Other Brother</li>
-      <li>💪 Himself</li>
-      <li>💨 Blaze</li>
-      <li>🎮 KS Studios</li>
-    </ul>
-  </section>
+<header>
+  <h1>GLASSTDM JUST HIT 1 MILLION ROBUX</h1>
+  <p>History has been made. We're never letting him live humble again.</p>
+</header>
 
-  <footer>
-    Made with 💚 by Karma & KS Studios • 2025
-  </footer>
+<section class="card">
+  <h2>Big Flex</h2>
+  <div class="robux">1,000,000 💰</div>
+  <p>Grinded. Hustled. Dominated. Glasstdm just joined the elite.</p>
+
+  <h3 style="margin-top:30px;color:#fffa;">Shoutouts:</h3>
+  <div class="carousel">
+    <div>Mom</div>
+    <div>Dad</div>
+    <div>Girlfriend</div>
+    <div>Karma (The GOAT)</div>
+    <div>Patrick</div>
+    <div>His Dog 🐶</div>
+    <div>Brother #1</div>
+    <div>Brother #2</div>
+    <div>Blaze</div>
+    <div>KS Studios</div>
+    <div>Himself 💪</div>
+  </div>
+</section>
+
+<div class="footer">
+  Powered by Karma & KS Studios • © 2025
+</div>
+
+<script>
+  const confetti = new ConfettiGenerator({ target: 'confetti', max: 200, clock: 30 });
+  confetti.render();
+</script>
 
 </body>
 </html>
