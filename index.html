@@ -41,7 +41,7 @@
     }
 
     h1 {
-      font-size: 3rem;
+      font-size: 4rem;
       color: #bbb;
       margin-bottom: 20px;
       text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
@@ -49,7 +49,7 @@
     }
 
     .robux-count {
-      font-size: 4rem;
+      font-size: 5rem;
       font-weight: 700;
       color: #b4b4b4;
       margin: 20px 0;
@@ -122,6 +122,15 @@
     @keyframes popIn {
       to { opacity: 1; transform: scale(1); }
       from { transform: scale(0.7); opacity: 0; }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 3rem;
+      }
+      .robux-count {
+        font-size: 4rem;
+      }
     }
 
     @media (max-width: 600px) {
