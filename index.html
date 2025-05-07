@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>GLASSTDM 1M ROBUX</title>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <style>
     * {
       margin: 0;
@@ -106,14 +107,6 @@
       animation: float 12s linear infinite;
     }
 
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 9;
-      pointer-events: none;
-    }
-
     @keyframes float {
       from { transform: translateY(0); opacity: 0.3; }
       to { transform: translateY(-100vh); opacity: 0; }
@@ -139,7 +132,6 @@
   </style>
 </head>
 <body>
-  <canvas id="confetti"></canvas>
   <div class="particles" id="particles"></div>
 
   <div class="wrapper">
@@ -161,8 +153,11 @@
     <div class="footer">Built by Karma ✦ 2025</div>
   </div>
 
+  <audio id="cheer-sound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_d7cbfa2b62.mp3" preload="auto"></audio>
+
   <script>
     const counter = document.getElementById('robux-counter');
+    const sound = document.getElementById('cheer-sound');
     let count = 0;
     const target = 1000000;
     const increment = target / 200;
@@ -174,10 +169,36 @@
         requestAnimationFrame(updateCounter);
       } else {
         counter.textContent = `${target.toLocaleString()} 💰`;
+        fireConfetti();
+        sound.play();
       }
     };
 
     updateCounter();
+
+    function fireConfetti() {
+      const duration = 3 * 1000;
+      const end = Date.now() + duration;
+
+      (function frame() {
+        confetti({
+          particleCount: 5,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0 }
+        });
+        confetti({
+          particleCount: 5,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1 }
+        });
+
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      })();
+    }
 
     const particlesContainer = document.getElementById('particles');
     for (let i = 0; i < 40; i++) {
@@ -190,63 +211,6 @@
       p.style.animationDuration = `${8 + Math.random() * 6}s`;
       particlesContainer.appendChild(p);
     }
-
-    const confettiCanvas = document.getElementById('confetti');
-    const ctx = confettiCanvas.getContext('2d');
-    let W = window.innerWidth;
-    let H = window.innerHeight;
-    confettiCanvas.width = W;
-    confettiCanvas.height = H;
-
-    let confetti = [];
-    for (let i = 0; i < 300; i++) {
-      confetti.push({
-        x: Math.random() * W,
-        y: Math.random() * H - H,
-        r: Math.random() * 6 + 4,
-        d: Math.random() * 100 + 10,
-        color: `hsl(${Math.floor(Math.random() * 360)}, 100%, 60%)`,
-        tilt: Math.floor(Math.random() * 10) - 10,
-        tiltAngleIncremental: Math.random() * 0.07 + 0.05,
-        tiltAngle: 0
-      });
-    }
-
-    function drawConfetti() {
-      ctx.clearRect(0, 0, W, H);
-      confetti.forEach(c => {
-        ctx.beginPath();
-        ctx.lineWidth = c.r;
-        ctx.strokeStyle = c.color;
-        ctx.moveTo(c.x + c.tilt + c.r / 2, c.y);
-        ctx.lineTo(c.x + c.tilt, c.y + c.tilt + c.r / 2);
-        ctx.stroke();
-      });
-      updateConfetti();
-    }
-
-    function updateConfetti() {
-      confetti.forEach(c => {
-        c.tiltAngle += c.tiltAngleIncremental;
-        c.y += (Math.cos(c.d) + 3 + c.r / 2) / 2;
-        c.x += Math.sin(c.d);
-        c.tilt = Math.sin(c.tiltAngle - (i / 3)) * 15;
-
-        if (c.y > H) {
-          c.y = -10;
-          c.x = Math.random() * W;
-        }
-      });
-    }
-
-    setInterval(drawConfetti, 16);
-
-    window.addEventListener('resize', () => {
-      W = window.innerWidth;
-      H = window.innerHeight;
-      confettiCanvas.width = W;
-      confettiCanvas.height = H;
-    });
   </script>
 </body>
 </html>
