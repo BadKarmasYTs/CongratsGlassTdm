@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>  
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -16,7 +16,7 @@
     html, body {
       height: 100%;
       font-family: 'Outfit', sans-serif;
-      background: #0b0b0b;
+      background: linear-gradient(135deg, #1f1f1f, #121212);
       color: #e6e6e6;
       overflow: hidden;
       position: relative;
@@ -25,35 +25,34 @@
     .wrapper {
       position: relative;
       z-index: 10;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(0, 0, 0, 0.6);
       border-radius: 18px;
       padding: 50px;
       max-width: 720px;
       width: 90%;
       margin: 100px auto;
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(20px);
+      box-shadow: 0 0 50px rgba(255, 255, 255, 0.1);
       text-align: center;
+      backdrop-filter: blur(15px);
       animation: fadeIn 1s ease forwards;
       opacity: 0;
     }
 
     h1 {
-      font-size: 2.7rem;
+      font-size: 3rem;
       color: #ffffff;
-      margin-bottom: 18px;
-      text-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
     }
 
     .robux-count {
-      font-size: 3.5rem;
+      font-size: 4rem;
       font-weight: 700;
-      color: #cfcfcf;
+      color: #00ff00;
       margin: 10px 0 30px;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
       animation: popIn 1s ease 0.3s forwards;
       opacity: 0;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
     }
 
     .shoutout {
@@ -64,26 +63,26 @@
     }
 
     .shoutout div {
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(255, 255, 255, 0.1);
       padding: 14px 20px;
       border-radius: 12px;
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 1.1rem;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      color: #dcdcdc;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #f0f0f0;
     }
 
     .shoutout div:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
     }
 
     .footer {
       margin-top: 30px;
       font-size: 0.85rem;
-      color: #777;
+      color: #bbb;
       animation: fadeIn 1s ease 1.2s forwards;
       opacity: 0;
     }
@@ -100,7 +99,7 @@
 
     .particle {
       position: absolute;
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.1);
       border-radius: 50%;
       filter: blur(4px);
       animation: float 12s linear infinite;
@@ -118,10 +117,10 @@
 
     .robux {
       position: absolute;
-      font-size: 24px;
+      font-size: 28px;
       animation: fall linear infinite;
       color: #00ff00;
-      background: url('https://upload.wikimedia.org/wikipedia/commons/e/e2/Robux_Logo_2020.png');
+      background: url('https://i.postimg.cc/RhWnh4nB/edfae9388da4cd8496b885a8a2df613372500d9c.png');
       background-size: contain;
       background-repeat: no-repeat;
       width: 32px;
@@ -149,79 +148,15 @@
 
     @media (max-width: 500px) {
       h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
       .robux-count {
-        font-size: 2.5rem;
+        font-size: 3rem;
       }
-    }
-
-    /* Dark/Light Mode Styles */
-    body.light-mode {
-      background: #f2f2f2;
-      color: #333;
-    }
-
-    body.light-mode .wrapper {
-      background: rgba(0, 0, 0, 0.02);
-      color: #333;
-    }
-
-    .dark-light-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: #333;
-      color: #fff;
-      padding: 10px;
-      border: none;
-      cursor: pointer;
-      z-index: 10;
-      border-radius: 5px;
-    }
-
-    .quote {
-      font-size: 1.2rem;
-      margin-top: 20px;
-      font-style: italic;
-      color: #dcdcdc;
-    }
-
-    .quote-button {
-      background: #ff8c00;
-      padding: 10px 20px;
-      border-radius: 5px;
-      border: none;
-      color: white;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-
-    .quote-button:hover {
-      background: #ff6e00;
-    }
-
-    .scrolling-text {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      color: #fff;
-      padding: 5px;
-      text-align: center;
-      font-size: 1rem;
-      animation: scrollText 15s linear infinite;
-    }
-
-    @keyframes scrollText {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
     }
   </style>
 </head>
 <body>
-  <button class="dark-light-toggle" id="mode-toggle">Switch Mode</button>
-
   <div class="particles" id="particles"></div>
   <div class="robux-rain" id="robux-rain"></div>
 
@@ -241,12 +176,8 @@
       <div>Blaze</div>
       <div>KS Studios</div>
     </div>
-    <div class="quote">"Success is the sum of small efforts, repeated day in and day out."</div>
-    <button class="quote-button" id="quote-btn">Get a New Quote</button>
     <div class="footer">Built by Karma ✦ 2025</div>
   </div>
-
-  <div class="scrolling-text">"Congratulations on reaching the 1M Robux milestone!"</div>
 
   <audio id="cheer-sound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_d7cbfa2b62.mp3" preload="auto"></audio>
 
@@ -316,25 +247,6 @@
       robux.style.animationDelay = `${Math.random() * 5}s`;
       robuxRainContainer.appendChild(robux);
     }
-
-    // Dark/Light Mode Toggle
-    const toggleButton = document.getElementById('mode-toggle');
-    toggleButton.addEventListener('click', () => {
-      document.body.classList.toggle('light-mode');
-    });
-
-    // Random Quote Button
-    const quoteButton = document.getElementById('quote-btn');
-    const quotes = [
-      "Success is the sum of small efforts, repeated day in and day out.",
-      "The journey of a thousand miles begins with one step.",
-      "Don’t watch the clock; do what it does. Keep going."
-    ];
-
-    quoteButton.addEventListener('click', () => {
-      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-      document.querySelector('.quote').textContent = randomQuote;
-    });
   </script>
 </body>
 </html>
