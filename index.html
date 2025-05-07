@@ -18,26 +18,25 @@
       font-family: 'Outfit', sans-serif;
       background: #0b0b0b;
       color: #e6e6e6;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       overflow: hidden;
+      position: relative;
     }
 
     .wrapper {
+      position: relative;
+      z-index: 10;
       background: rgba(255, 255, 255, 0.02);
       border: 1px solid rgba(255, 255, 255, 0.05);
       border-radius: 18px;
       padding: 50px;
       max-width: 720px;
       width: 90%;
+      margin: 100px auto;
       box-shadow: 0 0 25px rgba(255, 255, 255, 0.03);
       backdrop-filter: blur(20px);
       text-align: center;
       animation: fadeIn 1s ease forwards;
       opacity: 0;
-      z-index: 10;
     }
 
     h1 {
@@ -96,7 +95,7 @@
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: 0;
+      z-index: 1;
     }
 
     .particle {
@@ -105,6 +104,23 @@
       border-radius: 50%;
       filter: blur(4px);
       animation: float 12s linear infinite;
+    }
+
+    .robux-rain {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .robux {
+      position: absolute;
+      font-size: 24px;
+      animation: fall linear infinite;
+      color: #00ff00;
     }
 
     @keyframes float {
@@ -121,6 +137,11 @@
       from { transform: scale(0.7); opacity: 0; }
     }
 
+    @keyframes fall {
+      0% { transform: translateY(-10%); opacity: 1; }
+      100% { transform: translateY(110%); opacity: 0; }
+    }
+
     @media (max-width: 500px) {
       h1 {
         font-size: 2rem;
@@ -133,6 +154,7 @@
 </head>
 <body>
   <div class="particles" id="particles"></div>
+  <div class="robux-rain" id="robux-rain"></div>
 
   <div class="wrapper">
     <h1>GLASSTDM HIT 1 MILLION ROBUX</h1>
@@ -177,7 +199,7 @@
     updateCounter();
 
     function fireConfetti() {
-      const duration = 3 * 1000;
+      const duration = 5 * 1000;
       const end = Date.now() + duration;
 
       (function frame() {
@@ -210,6 +232,17 @@
       p.style.top = `${Math.random() * 100}vh`;
       p.style.animationDuration = `${8 + Math.random() * 6}s`;
       particlesContainer.appendChild(p);
+    }
+
+    const robuxRainContainer = document.getElementById('robux-rain');
+    for (let i = 0; i < 50; i++) {
+      const robux = document.createElement('div');
+      robux.classList.add('robux');
+      robux.textContent = '💰';
+      robux.style.left = `${Math.random() * 100}vw`;
+      robux.style.animationDuration = `${5 + Math.random() * 5}s`;
+      robux.style.animationDelay = `${Math.random() * 5}s`;
+      robuxRainContainer.appendChild(robux);
     }
   </script>
 </body>
