@@ -59,6 +59,17 @@
       text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
     }
 
+    .thank-you-message {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-top: 30px;
+      color: #e0e0e0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      animation: fadeIn 1.5s ease-in-out 1.5s forwards;
+      opacity: 0;
+    }
+
     .shoutout {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -89,7 +100,7 @@
       margin-top: 40px;
       font-size: 1rem;
       color: #888;
-      animation: fadeIn 1.5s ease-in-out 1.5s forwards;
+      animation: fadeIn 1.5s ease-in-out 2.5s forwards;
       opacity: 0;
     }
 
@@ -132,6 +143,9 @@
       .robux-count {
         font-size: 3rem;
       }
+      .thank-you-message {
+        font-size: 1.8rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -143,6 +157,9 @@
       }
       .robux-count {
         font-size: 2.5rem;
+      }
+      .thank-you-message {
+        font-size: 1.6rem;
       }
       .shoutout div {
         font-size: 1rem;
@@ -156,6 +173,7 @@
   <div class="wrapper">
     <h1>GLASSTDM HIT 1 MILLION ROBUX</h1>
     <div class="robux-count" id="robux-counter">0 💸</div>
+    <div class="thank-you-message">Thank You To All These Amazing People:</div>
     <div class="shoutout">
       <div>Mom</div>
       <div>Dad</div>
