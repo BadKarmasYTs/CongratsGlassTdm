@@ -121,6 +121,11 @@
       font-size: 24px;
       animation: fall linear infinite;
       color: #00ff00;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/e/e2/Robux_Logo_2020.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 32px;
+      height: 32px;
     }
 
     @keyframes float {
@@ -238,7 +243,6 @@
     for (let i = 0; i < 50; i++) {
       const robux = document.createElement('div');
       robux.classList.add('robux');
-      robux.textContent = '💰';
       robux.style.left = `${Math.random() * 100}vw`;
       robux.style.animationDuration = `${5 + Math.random() * 5}s`;
       robux.style.animationDelay = `${Math.random() * 5}s`;
