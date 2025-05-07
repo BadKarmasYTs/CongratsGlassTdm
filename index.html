@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Glasstdm's 1M Robux Celebration</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.18/dist/index.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GLASSTDM 1M ROBUX</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -13,156 +12,118 @@
       box-sizing: border-box;
     }
 
-    body {
+    html, body {
+      height: 100%;
       font-family: 'Outfit', sans-serif;
-      background: radial-gradient(ellipse at top, #0f0f0f, #000);
-      color: white;
-      overflow-x: hidden;
-    }
-
-    header {
-      height: 100vh;
+      background: #0e0e0e;
+      color: #fff;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      position: relative;
-      text-align: center;
-      padding: 20px;
-      background: url('https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+      justify-content: center;
+      overflow: hidden;
     }
 
-    header::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.75);
-    }
-
-    header h1 {
-      font-size: 3.5rem;
-      color: #00ffc8;
-      z-index: 2;
-      text-shadow: 0 0 20px #00ffc8;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      z-index: 2;
-      color: #ddd;
-      margin-top: 10px;
-    }
-
-    .card {
-      margin-top: -80px;
-      background: rgba(255, 255, 255, 0.06);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+    .wrapper {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 20px;
-      padding: 40px;
-      width: 90%;
+      padding: 50px;
       max-width: 700px;
-      margin-inline: auto;
-      box-shadow: 0 0 30px rgba(0, 255, 200, 0.2);
-      z-index: 2;
-      position: relative;
+      width: 90%;
+      box-shadow: 0 0 25px rgba(0, 255, 200, 0.1);
+      backdrop-filter: blur(20px);
+      text-align: center;
+      animation: fadeIn 1s ease forwards;
+      opacity: 0;
     }
 
-    .card h2 {
-      font-size: 2rem;
-      color: #fff;
-      margin-bottom: 10px;
+    h1 {
+      font-size: 2.8rem;
+      color: #00ffc3;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #00ffc3aa;
     }
 
-    .robux {
-      font-size: 3rem;
-      font-weight: 800;
+    .robux-count {
+      font-size: 4rem;
+      font-weight: 700;
       color: #00ff94;
-      margin: 10px 0;
+      margin: 10px 0 30px;
+      animation: popIn 1s ease 0.3s forwards;
+      opacity: 0;
     }
 
-    .carousel {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
+    .shoutout {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
       gap: 16px;
-      padding: 20px 10px;
       margin-top: 20px;
     }
 
-    .carousel div {
-      flex: 0 0 auto;
-      scroll-snap-align: center;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 20px;
-      border-radius: 16px;
-      min-width: 200px;
-      text-align: center;
+    .shoutout div {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 12px 18px;
+      border-radius: 12px;
       font-weight: 600;
-      box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+      font-size: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .shoutout div:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 12px #00ffc288;
     }
 
     .footer {
-      text-align: center;
-      padding: 30px;
+      margin-top: 30px;
       font-size: 0.9rem;
       color: #888;
-      margin-top: 60px;
+      animation: fadeIn 1s ease 1.2s forwards;
+      opacity: 0;
     }
 
-    @media (max-width: 600px) {
-      header h1 {
+    @keyframes fadeIn {
+      to { opacity: 1; transform: none; }
+    }
+
+    @keyframes popIn {
+      to { opacity: 1; transform: scale(1); }
+      from { transform: scale(0.7); opacity: 0; }
+    }
+
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .robux-count {
         font-size: 2.5rem;
-      }
-
-      .robux {
-        font-size: 2.2rem;
-      }
-
-      .card {
-        padding: 25px;
       }
     }
   </style>
 </head>
 <body>
 
-<canvas id="confetti"></canvas>
-
-<header>
-  <h1>GLASSTDM JUST HIT 1 MILLION ROBUX</h1>
-  <p>History has been made. We're never letting him live humble again.</p>
-</header>
-
-<section class="card">
-  <h2>Big Flex</h2>
-  <div class="robux">1,000,000 💰</div>
-  <p>Grinded. Hustled. Dominated. Glasstdm just joined the elite.</p>
-
-  <h3 style="margin-top:30px;color:#fffa;">Shoutouts:</h3>
-  <div class="carousel">
-    <div>Mom</div>
-    <div>Dad</div>
-    <div>Girlfriend</div>
-    <div>Karma (The GOAT)</div>
-    <div>Patrick</div>
-    <div>His Dog 🐶</div>
-    <div>Brother #1</div>
-    <div>Brother #2</div>
-    <div>Blaze</div>
-    <div>KS Studios</div>
-    <div>Himself 💪</div>
+  <div class="wrapper">
+    <h1>GLASSTDM HIT 1 MILLION ROBUX</h1>
+    <div class="robux-count">1,000,000 💰</div>
+    <div class="shoutout">
+      <div>Mom</div>
+      <div>Dad</div>
+      <div>Girlfriend</div>
+      <div>Karma</div>
+      <div>Patrick</div>
+      <div>His Dog</div>
+      <div>Brother #1</div>
+      <div>Brother #2</div>
+      <div>Himself</div>
+      <div>Blaze</div>
+      <div>KS Studios</div>
+    </div>
+    <div class="footer">Built by Karma ✦ 2025</div>
   </div>
-</section>
-
-<div class="footer">
-  Powered by Karma & KS Studios • © 2025
-</div>
-
-<script>
-  const confetti = new ConfettiGenerator({ target: 'confetti', max: 200, clock: 30 });
-  confetti.render();
-</script>
 
 </body>
 </html>
