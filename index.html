@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GLASSTDM 1M ROBUX</title>
+  <title>GLASSTDM 1M ROBUX - LET'S PARTY</title>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <style>
@@ -16,8 +16,8 @@
     html, body {
       height: 100%;
       font-family: 'Outfit', sans-serif;
-      background: #0b0b0b;
-      color: #e6e6e6;
+      background: #1a1a1a;
+      color: #fff;
       overflow: hidden;
       position: relative;
     }
@@ -25,71 +25,70 @@
     .wrapper {
       position: relative;
       z-index: 10;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
       padding: 50px;
-      max-width: 720px;
+      max-width: 750px;
       width: 90%;
       margin: 100px auto;
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(20px);
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(30px);
       text-align: center;
       animation: fadeIn 1s ease forwards;
       opacity: 0;
     }
 
     h1 {
-      font-size: 2.7rem;
-      color: #ffffff;
+      font-size: 3rem;
+      color: #fff;
       margin-bottom: 18px;
-      text-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
-      animation: glow 1.5s ease-in-out infinite alternate;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
     }
 
     .robux-count {
-      font-size: 3.5rem;
+      font-size: 4rem;
       font-weight: 700;
-      color: #cfcfcf;
-      margin: 10px 0 30px;
+      color: #90ee90;
+      margin: 20px 0;
+      text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
       animation: popIn 1s ease 0.3s forwards;
       opacity: 0;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
     }
 
     .shoutout {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
       gap: 16px;
-      margin-top: 20px;
+      margin-top: 30px;
     }
 
     .shoutout div {
       background: rgba(255, 255, 255, 0.03);
-      padding: 14px 20px;
-      border-radius: 12px;
+      padding: 15px 25px;
+      border-radius: 18px;
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 1.1rem;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      color: #dcdcdc;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #ddd;
     }
 
     .shoutout div:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      transform: scale(1.1);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
     }
 
     .footer {
       margin-top: 30px;
-      font-size: 0.85rem;
+      font-size: 1rem;
       color: #777;
       animation: fadeIn 1s ease 1.2s forwards;
       opacity: 0;
     }
 
-    .particles, .robux-rain, .firework {
+    .particles {
       position: fixed;
       top: 0;
       left: 0;
@@ -99,33 +98,38 @@
       z-index: 1;
     }
 
-    .particle, .firework {
+    .particle {
       position: absolute;
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.08);
       border-radius: 50%;
       filter: blur(4px);
-      animation: float 12s linear infinite;
+      animation: float 15s linear infinite;
+    }
+
+    .robux-rain {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
     }
 
     .robux {
       position: absolute;
-      font-size: 24px;
+      font-size: 30px;
       animation: fall linear infinite;
       color: #00ff00;
       background: url('https://upload.wikimedia.org/wikipedia/commons/e/e2/Robux_Logo_2020.png');
       background-size: contain;
       background-repeat: no-repeat;
-      width: 32px;
-      height: 32px;
-    }
-
-    @keyframes glow {
-      0% { text-shadow: 0 0 15px rgba(255, 255, 255, 0.2); }
-      100% { text-shadow: 0 0 30px rgba(255, 255, 255, 0.7); }
+      width: 40px;
+      height: 40px;
     }
 
     @keyframes float {
-      from { transform: translateY(0); opacity: 0.3; }
+      from { transform: translateY(0); opacity: 0.5; }
       to { transform: translateY(-100vh); opacity: 0; }
     }
 
@@ -143,43 +147,46 @@
       100% { transform: translateY(110%); opacity: 0; }
     }
 
-    @keyframes firework {
-      0% { transform: scale(1); opacity: 0.8; }
-      100% { transform: scale(1.5); opacity: 0; }
-    }
-
     @media (max-width: 500px) {
       h1 {
-        font-size: 2rem;
+        font-size: 2.3rem;
       }
       .robux-count {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
       }
+    }
+
+    .fireworks {
+      position: absolute;
+      z-index: 5;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
     }
   </style>
 </head>
 <body>
   <div class="particles" id="particles"></div>
   <div class="robux-rain" id="robux-rain"></div>
-  <div class="firework" id="firework"></div>
 
   <div class="wrapper">
-    <h1>GLASSTDM HIT 1 MILLION ROBUX</h1>
+    <h1>OH SNAP, GLASSTDM HIT 1 MILLION ROBUX!!</h1>
     <div class="robux-count" id="robux-counter">0 💰</div>
     <div class="shoutout">
       <div>Mom</div>
       <div>Dad</div>
-      <div>Girlfriend</div>
-      <div>Karma</div>
-      <div>Patrick</div>
-      <div>His Dog</div>
-      <div>Brother #1</div>
-      <div>Brother #2</div>
-      <div>Himself</div>
-      <div>Blaze</div>
-      <div>KS Studios</div>
+      <div>The Girlfriend Who Didn’t Block Me</div>
+      <div>Myself...obviously</div>
+      <div>My Dog (He’s the real MVP)</div>
+      <div>Bro #1 (What’s up fam)</div>
+      <div>Bro #2 (You’re lucky I didn’t forget you)</div>
+      <div>Uncle Bob (He’s always there)</div>
+      <div>That One Guy Who Didn’t Say "GG"</div>
+      <div>Everyone Who Believes In Me (Still not blocking me!)</div>
     </div>
-    <div class="footer">Built by Karma ✦ 2025</div>
+    <div class="footer">Built by Karma ✦ 2025 - Seriously, this is the best time</div>
   </div>
 
   <audio id="cheer-sound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_d7cbfa2b62.mp3" preload="auto"></audio>
@@ -189,7 +196,7 @@
     const sound = document.getElementById('cheer-sound');
     let count = 0;
     const target = 1000000;
-    const increment = target / 200;
+    const increment = target / 300;
 
     const updateCounter = () => {
       if (count < target) {
@@ -200,26 +207,27 @@
         counter.textContent = `${target.toLocaleString()} 💰`;
         fireConfetti();
         sound.play();
+        triggerFireworks();
       }
     };
 
     updateCounter();
 
     function fireConfetti() {
-      const duration = 5 * 1000;
+      const duration = 7 * 1000;
       const end = Date.now() + duration;
 
       (function frame() {
         confetti({
           particleCount: 5,
           angle: 60,
-          spread: 55,
+          spread: 70,
           origin: { x: 0 }
         });
         confetti({
           particleCount: 5,
           angle: 120,
-          spread: 55,
+          spread: 70,
           origin: { x: 1 }
         });
 
@@ -230,38 +238,38 @@
     }
 
     const particlesContainer = document.getElementById('particles');
-    for (let i = 0; i < 60; i++) {
+    for (let i = 0; i < 50; i++) {
       const p = document.createElement('div');
       p.classList.add('particle');
-      p.style.width = `${Math.random() * 4 + 2}px`;
+      p.style.width = `${Math.random() * 6 + 2}px`;
       p.style.height = p.style.width;
       p.style.left = `${Math.random() * 100}vw`;
       p.style.top = `${Math.random() * 100}vh`;
-      p.style.animationDuration = `${8 + Math.random() * 6}s`;
+      p.style.animationDuration = `${8 + Math.random() * 10}s`;
       particlesContainer.appendChild(p);
     }
 
     const robuxRainContainer = document.getElementById('robux-rain');
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 70; i++) {
       const robux = document.createElement('div');
       robux.classList.add('robux');
       robux.style.left = `${Math.random() * 100}vw`;
-      robux.style.animationDuration = `${5 + Math.random() * 5}s`;
-      robux.style.animationDelay = `${Math.random() * 5}s`;
+      robux.style.animationDuration = `${5 + Math.random() * 7}s`;
+      robux.style.animationDelay = `${Math.random() * 7}s`;
       robuxRainContainer.appendChild(robux);
     }
 
-    function createFirework() {
-      const firework = document.createElement('div');
-      firework.classList.add('firework');
-      firework.style.top = `${Math.random() * 100}vh`;
-      firework.style.left = `${Math.random() * 100}vw`;
-      firework.style.animationDuration = `${Math.random() * 1 + 3}s`;
-      firework.style.animationTimingFunction = 'ease-out';
-      document.body.appendChild(firework);
+    function triggerFireworks() {
+      const fireworks = document.createElement('div');
+      fireworks.classList.add('fireworks');
+      document.body.appendChild(fireworks);
+      confetti({
+        particleCount: 200,
+        spread: 180,
+        angle: 90,
+        origin: { x: 0.5, y: 0.5 }
+      });
     }
-
-    setInterval(createFirework, 300);
   </script>
 </body>
 </html>
