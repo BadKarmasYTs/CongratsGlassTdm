@@ -30,18 +30,19 @@
       background: rgba(0, 0, 0, 0.9);
       border-radius: 20px;
       padding: 40px;
-      max-width: 800px;
-      width: 90%;
+      max-width: 90%;
+      width: 100%;
       box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(20px);
       text-align: center;
       animation: fadeIn 1.5s ease-in-out forwards;
       opacity: 0;
       z-index: 10;
+      margin: 20px;
     }
 
     h1 {
-      font-size: 4rem;
+      font-size: 3rem;
       color: #bbb;
       margin-bottom: 20px;
       text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
@@ -49,7 +50,7 @@
     }
 
     .robux-count {
-      font-size: 5rem;
+      font-size: 4rem;
       font-weight: 700;
       color: #b4b4b4;
       margin: 20px 0;
@@ -61,7 +62,7 @@
     .shoutout {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 30px;
+      gap: 20px;
       margin-top: 30px;
       justify-items: center;
     }
@@ -126,15 +127,6 @@
 
     @media (max-width: 768px) {
       h1 {
-        font-size: 3rem;
-      }
-      .robux-count {
-        font-size: 4rem;
-      }
-    }
-
-    @media (max-width: 600px) {
-      h1 {
         font-size: 2.5rem;
       }
       .robux-count {
@@ -142,9 +134,15 @@
       }
     }
 
-    @media (max-width: 400px) {
+    @media (max-width: 480px) {
       .wrapper {
-        padding: 30px;
+        padding: 20px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .robux-count {
+        font-size: 2.5rem;
       }
       .shoutout div {
         font-size: 1rem;
