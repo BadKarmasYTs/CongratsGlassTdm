@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GLASSTDM 1M ROBUX - LET'S PARTY</title>
+  <title>GLASSTDM 1M ROBUX</title>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <style>
@@ -16,8 +16,8 @@
     html, body {
       height: 100%;
       font-family: 'Outfit', sans-serif;
-      background: #1a1a1a;
-      color: #fff;
+      background: #0b0b0b;
+      color: #e6e6e6;
       overflow: hidden;
       position: relative;
     }
@@ -25,64 +25,64 @@
     .wrapper {
       position: relative;
       z-index: 10;
-      background: rgba(255, 255, 255, 0.1);
-      border: 2px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 18px;
       padding: 50px;
-      max-width: 750px;
+      max-width: 720px;
       width: 90%;
       margin: 100px auto;
-      box-shadow: 0 0 40px rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(30px);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(20px);
       text-align: center;
       animation: fadeIn 1s ease forwards;
       opacity: 0;
     }
 
     h1 {
-      font-size: 3rem;
-      color: #fff;
+      font-size: 2.7rem;
+      color: #ffffff;
       margin-bottom: 18px;
-      text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
     }
 
     .robux-count {
-      font-size: 4rem;
+      font-size: 3.5rem;
       font-weight: 700;
-      color: #90ee90;
-      margin: 20px 0;
-      text-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+      color: #cfcfcf;
+      margin: 10px 0 30px;
       animation: popIn 1s ease 0.3s forwards;
       opacity: 0;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
     }
 
     .shoutout {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
       gap: 16px;
-      margin-top: 30px;
+      margin-top: 20px;
     }
 
     .shoutout div {
       background: rgba(255, 255, 255, 0.03);
-      padding: 15px 25px;
-      border-radius: 18px;
+      padding: 14px 20px;
+      border-radius: 12px;
       font-weight: 600;
-      font-size: 1.1rem;
+      font-size: 1rem;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #ddd;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: #dcdcdc;
     }
 
     .shoutout div:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
     }
 
     .footer {
       margin-top: 30px;
-      font-size: 1rem;
+      font-size: 0.85rem;
       color: #777;
       animation: fadeIn 1s ease 1.2s forwards;
       opacity: 0;
@@ -100,10 +100,10 @@
 
     .particle {
       position: absolute;
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.06);
       border-radius: 50%;
       filter: blur(4px);
-      animation: float 15s linear infinite;
+      animation: float 12s linear infinite;
     }
 
     .robux-rain {
@@ -118,18 +118,18 @@
 
     .robux {
       position: absolute;
-      font-size: 30px;
+      font-size: 24px;
       animation: fall linear infinite;
       color: #00ff00;
       background: url('https://upload.wikimedia.org/wikipedia/commons/e/e2/Robux_Logo_2020.png');
       background-size: contain;
       background-repeat: no-repeat;
-      width: 40px;
-      height: 40px;
+      width: 32px;
+      height: 32px;
     }
 
     @keyframes float {
-      from { transform: translateY(0); opacity: 0.5; }
+      from { transform: translateY(0); opacity: 0.3; }
       to { transform: translateY(-100vh); opacity: 0; }
     }
 
@@ -149,45 +149,104 @@
 
     @media (max-width: 500px) {
       h1 {
-        font-size: 2.3rem;
+        font-size: 2rem;
       }
       .robux-count {
-        font-size: 2.8rem;
+        font-size: 2.5rem;
       }
     }
 
-    .fireworks {
-      position: absolute;
-      z-index: 5;
+    /* Dark/Light Mode Styles */
+    body.light-mode {
+      background: #f2f2f2;
+      color: #333;
+    }
+
+    body.light-mode .wrapper {
+      background: rgba(0, 0, 0, 0.02);
+      color: #333;
+    }
+
+    .dark-light-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #333;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      z-index: 10;
+      border-radius: 5px;
+    }
+
+    .quote {
+      font-size: 1.2rem;
+      margin-top: 20px;
+      font-style: italic;
+      color: #dcdcdc;
+    }
+
+    .quote-button {
+      background: #ff8c00;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      color: white;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .quote-button:hover {
+      background: #ff6e00;
+    }
+
+    .scrolling-text {
+      position: fixed;
+      bottom: 0;
       width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      pointer-events: none;
+      background: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      padding: 5px;
+      text-align: center;
+      font-size: 1rem;
+      animation: scrollText 15s linear infinite;
+    }
+
+    @keyframes scrollText {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
     }
   </style>
 </head>
 <body>
+  <button class="dark-light-toggle" id="mode-toggle">Switch Mode</button>
+
   <div class="particles" id="particles"></div>
   <div class="robux-rain" id="robux-rain"></div>
 
   <div class="wrapper">
-    <h1>OH SNAP, GLASSTDM HIT 1 MILLION ROBUX!!</h1>
+    <h1>GLASSTDM HIT 1 MILLION ROBUX</h1>
     <div class="robux-count" id="robux-counter">0 💰</div>
     <div class="shoutout">
       <div>Mom</div>
       <div>Dad</div>
-      <div>The Girlfriend Who Didn’t Block Me</div>
-      <div>Myself...obviously</div>
-      <div>My Dog (He’s the real MVP)</div>
-      <div>Bro #1 (What’s up fam)</div>
-      <div>Bro #2 (You’re lucky I didn’t forget you)</div>
-      <div>Uncle Bob (He’s always there)</div>
-      <div>That One Guy Who Didn’t Say "GG"</div>
-      <div>Everyone Who Believes In Me (Still not blocking me!)</div>
+      <div>Girlfriend</div>
+      <div>Karma</div>
+      <div>Patrick</div>
+      <div>His Dog</div>
+      <div>Brother #1</div>
+      <div>Brother #2</div>
+      <div>Himself</div>
+      <div>Blaze</div>
+      <div>KS Studios</div>
     </div>
-    <div class="footer">Built by Karma ✦ 2025 - Seriously, this is the best time</div>
+    <div class="quote">"Success is the sum of small efforts, repeated day in and day out."</div>
+    <button class="quote-button" id="quote-btn">Get a New Quote</button>
+    <div class="footer">Built by Karma ✦ 2025</div>
   </div>
+
+  <div class="scrolling-text">"Congratulations on reaching the 1M Robux milestone!"</div>
 
   <audio id="cheer-sound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_d7cbfa2b62.mp3" preload="auto"></audio>
 
@@ -196,7 +255,7 @@
     const sound = document.getElementById('cheer-sound');
     let count = 0;
     const target = 1000000;
-    const increment = target / 300;
+    const increment = target / 200;
 
     const updateCounter = () => {
       if (count < target) {
@@ -207,27 +266,26 @@
         counter.textContent = `${target.toLocaleString()} 💰`;
         fireConfetti();
         sound.play();
-        triggerFireworks();
       }
     };
 
     updateCounter();
 
     function fireConfetti() {
-      const duration = 7 * 1000;
+      const duration = 5 * 1000;
       const end = Date.now() + duration;
 
       (function frame() {
         confetti({
           particleCount: 5,
           angle: 60,
-          spread: 70,
+          spread: 55,
           origin: { x: 0 }
         });
         confetti({
           particleCount: 5,
           angle: 120,
-          spread: 70,
+          spread: 55,
           origin: { x: 1 }
         });
 
@@ -238,38 +296,45 @@
     }
 
     const particlesContainer = document.getElementById('particles');
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 40; i++) {
       const p = document.createElement('div');
       p.classList.add('particle');
-      p.style.width = `${Math.random() * 6 + 2}px`;
+      p.style.width = `${Math.random() * 4 + 2}px`;
       p.style.height = p.style.width;
       p.style.left = `${Math.random() * 100}vw`;
       p.style.top = `${Math.random() * 100}vh`;
-      p.style.animationDuration = `${8 + Math.random() * 10}s`;
+      p.style.animationDuration = `${8 + Math.random() * 6}s`;
       particlesContainer.appendChild(p);
     }
 
     const robuxRainContainer = document.getElementById('robux-rain');
-    for (let i = 0; i < 70; i++) {
+    for (let i = 0; i < 50; i++) {
       const robux = document.createElement('div');
       robux.classList.add('robux');
       robux.style.left = `${Math.random() * 100}vw`;
-      robux.style.animationDuration = `${5 + Math.random() * 7}s`;
-      robux.style.animationDelay = `${Math.random() * 7}s`;
+      robux.style.animationDuration = `${5 + Math.random() * 5}s`;
+      robux.style.animationDelay = `${Math.random() * 5}s`;
       robuxRainContainer.appendChild(robux);
     }
 
-    function triggerFireworks() {
-      const fireworks = document.createElement('div');
-      fireworks.classList.add('fireworks');
-      document.body.appendChild(fireworks);
-      confetti({
-        particleCount: 200,
-        spread: 180,
-        angle: 90,
-        origin: { x: 0.5, y: 0.5 }
-      });
-    }
+    // Dark/Light Mode Toggle
+    const toggleButton = document.getElementById('mode-toggle');
+    toggleButton.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+    });
+
+    // Random Quote Button
+    const quoteButton = document.getElementById('quote-btn');
+    const quotes = [
+      "Success is the sum of small efforts, repeated day in and day out.",
+      "The journey of a thousand miles begins with one step.",
+      "Don’t watch the clock; do what it does. Keep going."
+    ];
+
+    quoteButton.addEventListener('click', () => {
+      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+      document.querySelector('.quote').textContent = randomQuote;
+    });
   </script>
 </body>
 </html>
